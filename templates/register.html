@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <div class="container">
+        <div class="form_area">
+            <p class="title">SIGN UP</p>
+            <form action="/register.php" method="post" onsubmit="return validateForm()">
+                <div class="form_group">
+                    <label class="sub_title" for="username">Username</label>
+                    <input placeholder="Enter your full name" id="username" name="username" class="form_style" type="text" required>
+                   
+                </div>
+                <div class="form_group">
+                    <label class="sub_title" for="email">Email</label>
+                    <!-- Updated regex to require a dot after the @ symbol -->
+                    <input placeholder="Enter Your Email" id="email" name="email" class="form_style" type="email"  pattern="^[^@]+@[^@]+\.[^@]+$"   title="Please enter a valid email address, e.g. example@example.example"required>
+                    <small>Format: xxx@xx.xxx (example: abc@de.com)</small>
+                </div>
+                <div class="form_group">
+                    <label class="sub_title" for="password">Password</label>
+                    <input placeholder="Enter your password" id="password" name="password" class="form_style" type="password" minlength="8" required>
+                    
+                </div>
+                <div>
+                    <button class="btn">SIGN UP</button>
+                    <p>Have an Account? <a class="link" href="login">Login Here!</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
