@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.5.3/css/pico.min.css">
+</head>
+<body>
+    <header class="container">
+        <h1>User Profile</h1>
+    </header>
+
+    <main class="container">
+        <section id="profile">
+            <h2>Edit Profile</h2>
+            <form>
+                <!-- First Name Field -->
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" value="Fname" required onfocus="this.value=''">
+
+                <!-- Last Name Field -->
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" value="Lname" required onfocus="this.value=''">
+
+                <!-- Email Field -->
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" 
+                       pattern="[0-9]{8}@stu\.uob\.edu\.bh" 
+                       value="ex@stu.uob.edu.bh"
+                       required
+                       onfocus="this.value=''">
+
+                <!-- Profile Picture Upload -->
+                <label for="profile-picture">Profile Picture</label>
+                <input type="file" id="profile-picture" name="profile-picture">
+
+                <!-- Current Profile Picture -->
+                <img src="placeholder.jpg" alt="Profile Picture" style="width: 150px; height: 150px;">
+
+                <!-- Save changes -->
+                <button type="submit">Save Changes</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p> 2024 User Profile  System</p>
+    </footer>
+</body>
+</html>
