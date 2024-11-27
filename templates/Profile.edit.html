@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.5.3/css/pico.min.css">
+</head>
+<body>
+<header class="container">
+    <h1>Edit Profile</h1>
+</header>
+
+<main class="container">
+    <section id="profile">
+        <form action="edit_profile.php" method="post" enctype="multipart/form-data">
+            <!-- Username -->
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="enter your Username"  value="<?= htmlspecialchars($user['username'] ?? '') ?>" required>
+
+            <!-- Email -->
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="enter your Email" 
+                   pattern="[0-9]{8}@stu\.uob\.edu\.bh" 
+                   value="<?= htmlspecialchars($user['email'] ?? '') ?>" required>
+
+            <!-- Profile Picture -->
+            <label for="profile_picture">Profile Picture</label>
+            <input type="file" id="profile_picture" name="profile_picture">
+            <img src="<?= htmlspecialchars($user['profile_picture'] ?? 'uploads/placeholder.jpg') ?>" alt="Profile Picture" style="width: 150px; height: 150px;">
+
+            <hr>
+
+            <!-- Current Password -->
+            <label for="current_password">Current Password</label>
+            <input type="password" id="current_password" name="current_password" placeholder="Enter your current password">
+
+            <!-- New Password -->
+            <label for="new_password">New Password</label>
+            <input type="password" id="new_password" name="new_password" placeholder="Enter a new password" minlength="8">
+
+            <hr>
+
+            <!-- Save Changes -->
+            <button type="submit">Save Changes</button>
+        </form>
+    </section>
+</main>
+
+<footer class="container">
+    <p> User Profile </p>
+</footer>
+</body>
+</html>
