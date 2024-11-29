@@ -39,6 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h1>Register</h1>
     <form method="POST" action="">
+
+        <label for="username">username:</label>
+        <input type="username" id="username" name="username" required>
+        
         <label for="email">UoB Email:</label>
         <input type="email" id="email" name="email" pattern="[0-9]{8}@stu\.uob\.edu\.bh" required>
 
