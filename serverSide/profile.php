@@ -30,6 +30,8 @@ if (!$user) {
 </head>
 <body>
     <h1>Your Profile</h1>
+    <p><strong>First Name:</strong> <?= htmlspecialchars($user['first_name']) ?></p>
+    <p><strong>Last Name:</strong> <?= htmlspecialchars($user['last_name']) ?></p>
     <p><strong>Email:</strong> <?= htmlspecialchars($user['email']) ?></p>
     <p>
         <strong>Profile Picture:</strong><br>
@@ -40,3 +42,4 @@ if (!$user) {
     <a href="logout.php">Logout</a>
 </body>
 </html>
+
