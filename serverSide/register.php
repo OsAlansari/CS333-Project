@@ -2,6 +2,8 @@
 include 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 
@@ -22,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     // Insert into database
-    $stmt = $pdo->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
-    $stmt->execute([$email, $hashedPassword]);
+    $stmt = $pdo->prepare("INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)");
+    $stmt->execute([$first_name, $last_name, $email, $hashedPassword]);
 
     echo 'Registration successful! <a href="login.php">Click here to login.</a>';
 }
@@ -39,10 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h1>Register</h1>
     <form method="POST" action="">
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required>
 
-        <label for="username">username:</label>
-        <input type="username" id="username" name="username" required>
-        
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required>
+
         <label for="email">UoB Email:</label>
         <input type="email" id="email" name="email" pattern="[0-9]{8}@stu\.uob\.edu\.bh" required>
 
