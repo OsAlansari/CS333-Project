@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id'];
-        header('Location: index.php');
+        header('Location: index.php'); // Redirect to the home page
         exit();
     } else {
         echo 'Invalid email or password.';
