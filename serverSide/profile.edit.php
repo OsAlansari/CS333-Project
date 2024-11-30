@@ -73,34 +73,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Css/profile-edit.css">
 </head>
 <body>
+<div class="edit-profile-container">
     <h1>Edit Profile</h1>
     <form method="POST" enctype="multipart/form-data">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required>
-
-        <label for="profile_picture">Profile Picture:</label>
-        <input type="file" id="profile_picture" name="profile_picture">
-
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required>
+        </div>
+        <div class="form-group">
+            <label for="profile_picture">Profile Picture:</label>
+            <input type="file" id="profile_picture" name="profile_picture">
+        </div>
         <h3>Change Password</h3>
         <?php if (isset($error)): ?>
-            <p style="color: red;"><?= htmlspecialchars($error) ?></p>
+            <p class="error-message"><?= htmlspecialchars($error) ?></p>
         <?php endif; ?>
         <?php if (isset($success)): ?>
-            <p style="color: green;"><?= htmlspecialchars($success) ?></p>
+            <p class="success-message"><?= htmlspecialchars($success) ?></p>
         <?php endif; ?>
-        <label for="current_password">Current Password:</label>
-        <input type="password" id="current_password" name="current_password">
-
-        <label for="new_password">New Password:</label>
-        <input type="password" id="new_password" name="new_password">
-
-        <label for="confirm_password">Confirm New Password:</label>
-        <input type="password" id="confirm_password" name="confirm_password">
-
-        <button type="submit">Update Profile</button>
+        <div class="form-group">
+            <label for="current_password">Current Password:</label>
+            <input type="password" id="current_password" name="current_password">
+        </div>
+        <div class="form-group">
+            <label for="new_password">New Password:</label>
+            <input type="password" id="new_password" name="new_password">
+        </div>
+        <div class="form-group">
+            <label for="confirm_password">Confirm New Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password">
+        </div>
+        <button class="submit-button" type="submit">Update Profile</button>
     </form>
-    <a href="profile.php">Back to Profile Page</a>
+    <a href="profile.php" class="back-button">Back to Profile Page</a>
+</div>
 </body>
 </html>

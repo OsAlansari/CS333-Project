@@ -1,0 +1,126 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+}
+
+.edit-profile-container {
+    width: 450px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: left;
+}
+
+/* Header */
+.edit-profile-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form Groups */
+.edit-profile-container .form-group {
+    margin-bottom: 20px;
+}
+
+.edit-profile-container .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.edit-profile-container .form-group input[type="email"],
+.edit-profile-container .form-group input[type="file"],
+.edit-profile-container .form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.edit-profile-container .form-group input[type="file"] {
+    border: none;
+    padding: 5px;
+}
+
+/* Section Header */
+.edit-profile-container h3 {
+    font-size: 1.5rem;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Error and Success Messages */
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.success-message {
+    color: green;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+/* Buttons */
+.edit-profile-container .button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background: linear-gradient(45deg, #3498db, #2ecc71);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.edit-profile-container .button:hover {
+    opacity: 0.9;
+}
+
+.edit-profile-container .submit-button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    background: linear-gradient(45deg, #ab6bff, #27014b);
+    font-size: 1rem;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.edit-profile-container .submit-button:hover {
+    opacity: 0.9;
+}
+
+/* Back Button */
+.edit-profile-container .back-button {
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    color: #555;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.edit-profile-container .back-button:hover {
+    text-decoration: underline;
+}
