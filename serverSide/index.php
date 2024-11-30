@@ -11,9 +11,10 @@ $isLoggedIn = isset($_SESSION['user_id']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="../Css/index.css"> 
+    <link rel="stylesheet" href="../Css/index.css"> <!-- Ensure the CSS path is correct -->
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav>
         <ul>
             <?php if ($isLoggedIn): ?>
@@ -25,10 +26,12 @@ $isLoggedIn = isset($_SESSION['user_id']);
             <?php endif; ?>
         </ul>
     </nav>
+
+    <!-- Main Content -->
     <main>
         <h1>Welcome to the Home Page</h1>
         <?php if ($isLoggedIn): ?>
-            <p>You are logged in .</p>
+            <p>You are logged in. Access your <a href="profile.php">profile</a>.</p>
         <?php else: ?>
             <p>Please log in or register to access more features.</p>
         <?php endif; ?>
