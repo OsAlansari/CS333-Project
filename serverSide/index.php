@@ -20,8 +20,8 @@ $isLoggedIn = isset($_SESSION['user_id']);
                 <li><a href="profile.php">Profile</a></li>
                 <li><a href="logout.php">Log Out</a></li>
             <?php else: ?>
-                <li><a href="login.php">Log In</a></li>
-                <li><a href="register.php">Register</a></li>
+                
+                <li><a href="login-register.php">Sign up</a></li>
             <?php endif; ?>
         </ul>
     </nav>
