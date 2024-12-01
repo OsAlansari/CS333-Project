@@ -11,18 +11,37 @@ $isLoggedIn = isset($_SESSION['user_id']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="../Css/index.css"> <!-- Ensure the CSS path is correct -->
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <!-- Additional CSS -->
+    <link rel="stylesheet" href="../Css/index.css">
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24;
+            vertical-align: middle; /* Aligns the icon with text */
+            margin-right: 5px;     /* Adds spacing between icon and text */
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav>
         <ul>
             <?php if ($isLoggedIn): ?>
-                <li><a href="profile.php">Profile</a></li>
-                <li><a href="logout.php">Log Out</a></li>
+                <li><a href="profile.php">
+                    <span class="material-symbols-outlined">person</span>Profile
+                </a></li>
+                <li><a href="logout.php">
+                    <span class="material-symbols-outlined">logout</span>Log Out
+                </a></li>
             <?php else: ?>
-                
-                <li><a href="login-register.php">Sign up</a></li>
+                <li><a href="login-register.php">
+                    <span class="material-symbols-outlined">login</span>Sign Up
+                </a></li>
             <?php endif; ?>
         </ul>
     </nav>
