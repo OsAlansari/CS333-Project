@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        if (!preg_match('/^[0-9]{8,9}@stu\.uob\.edu\.bh$/', $email) && !preg_match('/^([a-z][A-Z]){4,}@uob\.edu\.bh$/', $email)) {
+        if (!preg_match('/^[0-9]{8,9}@stu\.uob\.edu\.bh$/', $email) && !preg_match('/^[a-zA-Z]{4,}@uob\.edu\.bh$/', $email)) {
             $register_error = 'Invalid UoB email format.';
         } 
         else {
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } 
             else {
                 $user_type = 'student';
-                if (preg_match('/^([a-z][A-Z]){4,}@uob\.edu\.bh$/', $email)){
+                if (preg_match('/^[a-zA-Z]{4,}@uob\.edu\.bh$/', $email)){
                     $user_type = 'staff';
                 }
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
