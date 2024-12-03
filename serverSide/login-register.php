@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        if (!preg_match('/^[0-9]{8}@stu\.uob\.edu\.bh$/', $email)) {
+        if (!preg_match('/^[0-9]{8,9}@stu\.uob\.edu\.bh$/', $email) && !preg_match('/^([a-z][A-Z]){4,}@uob\.edu\.bh$/', $email)) {
             $register_error = 'Invalid UoB email format.';
         } else {
             $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
@@ -34,9 +34,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($stmt->fetch()) {
                 $register_error = 'This email is already registered.';
             } else {
+                if (preg_match('/^[0-9]{8,9}@stu\.uob\.edu\.bh$/', $email)){
+                    $user_type = 'student';
+                }
+                else{
+                    $user_type = 'staff';
+                }
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-                $stmt = $pdo->prepare("INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)");
-                $stmt->execute([$first_name, $last_name, $email, $hashedPassword]);
+                $stmt = $pdo->prepare("INSERT INTO users (first_name, last_name, email, password, user_type) VALUES (?, ?, ?, ?,?)");
+                $stmt->execute([$first_name, $last_name, $email, $hashedPassword, $user_type]);
 
                 // Set session and redirect to home page after successful registration
                 $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
