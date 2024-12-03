@@ -38,6 +38,12 @@ $isLoggedIn = isset($_SESSION['user_id']);
                 <li><a href="logout.php">
                     <span class="material-symbols-outlined">logout</span>Log Out
                 </a></li>
+                <li><a href="room_browse.php">
+                    <span class="material-symbols-outlined">Bowse Rooms</span>Profile
+                </a></li>
+                <li><a href="room_details.php">
+                    <span class="material-symbols-outlined">Details of Rooms</span>Log Out
+                </a></li>
             <?php else: ?>
                 <li><a href="login-register.php">
                     <span class="material-symbols-outlined">login</span>Sign Up
