@@ -28,16 +28,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (!preg_match('/^[0-9]{8,9}@stu\.uob\.edu\.bh$/', $email) && !preg_match('/^([a-z][A-Z]){4,}@uob\.edu\.bh$/', $email)) {
             $register_error = 'Invalid UoB email format.';
-        } else {
+        } 
+        else {
             $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
             $stmt->execute([$email]);
             if ($stmt->fetch()) {
                 $register_error = 'This email is already registered.';
-            } else {
+            } 
+            else {
                 if (preg_match('/^[0-9]{8,9}@stu\.uob\.edu\.bh$/', $email)){
                     $user_type = 'student';
                 }
-                else{
+                elseif (preg_match('/^([a-z][A-Z]){4,}@uob\.edu\.bh$/', $email)){
                     $user_type = 'staff';
                 }
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
