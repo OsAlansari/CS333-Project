@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 03, 2024 at 02:57 PM
+-- Generation Time: Dec 03, 2024 at 03:22 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -96,7 +96,46 @@ INSERT INTO `Rooms` (`room_id`, `room_name`, `room_type`) VALUES
 (20, 'S40-2010', 'ClassRoom'),
 (21, 'S40-2011', 'ClassRoom'),
 (22, 'S40-2015', 'Lab'),
-(23, 'S40-1014', 'Lab');
+(23, 'S40-1014', 'Lab'),
+(24, 'S40-049', 'Lab'),
+(25, 'S40-051', 'Lab'),
+(26, 'S40-060', 'Lab'),
+(27, 'S40-058', 'Lab'),
+(28, 'S40-056', 'ClassRoom'),
+(29, 'S40-057', 'ClassRoom'),
+(30, 'S40-1043', 'Lab'),
+(31, 'S40-10052', 'Lab'),
+(32, 'S40-1045', 'Lab'),
+(33, 'S40-1050', 'Lab'),
+(34, 'S40-1047', 'ClassRoom'),
+(35, 'S40-1048', 'ClassRoom'),
+(36, 'S40-2043', 'Lab'),
+(37, 'S40-2053', 'Lab'),
+(38, 'S40-2045', 'Lab'),
+(39, 'S40-2051', 'Lab'),
+(40, 'S40-2046', 'ClassRoom'),
+(41, 'S40-2050', 'ClassRoom'),
+(42, 'S40-2048', 'ClassRoom'),
+(43, 'S40-2049', 'ClassRoom'),
+(44, 'S40-077', 'Lab'),
+(45, 'S40-079', 'Lab'),
+(46, 'S40-088', 'Lab'),
+(47, 'S40-086', 'Lab'),
+(48, 'S40-084', 'ClassRoom'),
+(49, 'S40-085', 'ClassRoom'),
+(50, 'S40-1081', 'Lab'),
+(51, 'S40-1089', 'Lab'),
+(52, 'S40-1083', 'Lab'),
+(53, 'S40-1087', 'Lab'),
+(54, 'S40-1086', 'ClassRoom'),
+(55, 'S40-1085', 'ClassRoom'),
+(56, 'S40-2081', 'Lab'),
+(57, 'S40-2089', 'Lab'),
+(58, 'S40-2083', 'Lab'),
+(59, 'S40-2091', 'Lab'),
+(60, 'S40-2084', 'ClassRoom'),
+(61, 'S40-2086', 'ClassRoom'),
+(62, 'S40-2087', 'ClassRoom');
 
 -- --------------------------------------------------------
 
@@ -118,6 +157,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `profile_picture`, `first_name`, `last_name`) VALUES
+(0, 'Admin', '$2y$10$zTewDPwnjeSkxK6kcxJ/1OWR2Ko3faqIBM4nOHCsC3/YA.gm6v8mm', NULL, 'Admin', 'Admin'),
 (1, '20198028@stu.uob.edu.bh', '$2y$10$LKK2zccKXvbTRIfJ3663Ve5tKzYzdRfbSI7IjkzkYm9lF.jHklZJ6', 'uploads/GJv49FTNLGeKMT5aVMidSdsnXyu4KyQ8w4wrYoc8_nBfitgROIDlSSFzEROlDEo_IrSMh6a3FynN72pOj6zj19LwZo6z90dqoGAO=e365-pa-nu-s0.webp', '', ''),
 (2, '20201234@stu.uob.edu.bh', '$2y$10$huDr7RudUb5co0BgyXuXIOEVYp1z7x2IPCFrcfilGnrfOk5zsy4ru', NULL, '', ''),
 (3, '20198027@stu.uob.edu.bh', '$2y$10$YBvVSyABOa069FXXJeLvMuxJum43BPIvEfrbaCo4XGrrreeJmnkyy', NULL, 'muhanna', 'jamal'),
@@ -164,7 +204,7 @@ ALTER TABLE `Bookings`
 -- AUTO_INCREMENT for table `Rooms`
 --
 ALTER TABLE `Rooms`
-  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- Constraints for dumped tables
