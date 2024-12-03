@@ -36,10 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $register_error = 'This email is already registered.';
             } 
             else {
-                if (preg_match('/^[0-9]{8,9}@stu\.uob\.edu\.bh$/', $email)){
-                    $user_type = 'student';
-                }
-                elseif (preg_match('/^([a-z][A-Z]){4,}@uob\.edu\.bh$/', $email)){
+                $user_type = 'student';
+                if (preg_match('/^([a-z][A-Z]){4,}@uob\.edu\.bh$/', $email)){
                     $user_type = 'staff';
                 }
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
