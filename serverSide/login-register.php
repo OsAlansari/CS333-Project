@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="login">
         <form method="POST" action="">
             <label for="chk" aria-hidden="true">Login</label>
-            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit" name="login">Login</button>
         </form>
