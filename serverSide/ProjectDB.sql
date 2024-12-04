@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 03, 2024 at 03:22 PM
+-- Generation Time: Dec 04, 2024 at 07:01 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ProjectDB`
+-- Database: `user_management`
 --
 
 -- --------------------------------------------------------
@@ -67,7 +67,7 @@ CREATE TABLE `Rooms` (
   `room_id` int(11) NOT NULL,
   `room_name` varchar(50) NOT NULL,
   `room_type` enum('ClassRoom','Lab') NOT NULL,
-  `location` enum('IS','CS','CE', 'OpenLab') NOT NULL
+  `location` enum('IS','CS','CE','OpenLab') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -151,7 +151,7 @@ CREATE TABLE `users` (
   `profile_picture` varchar(255) DEFAULT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
-  `user_type` ENUM('Student', 'Staff', 'Admin') NOT NULL
+  `user_type` enum('Student','Staff','Admin') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -166,7 +166,8 @@ INSERT INTO `users` (`id`, `email`, `password`, `profile_picture`, `first_name`,
 (4, '20198021@stu.uob.edu.bh', '$2y$10$4.a3A0laDpp5PGwHwiQe6.1SWxzvH2eqnjLiUQgOv0rdeZ0fOoFhO', NULL, 'muhanna', 'jamal', 'Student'),
 (5, '12345678@stu.uob.edu.bh', '$2y$10$M.xA71l3SXbijHJyz2/6de9l38FLVPwdkc92oYtfSNOFJIt9y.m1G', NULL, 'muhanna', 'ahmed', 'Student'),
 (6, '87654321@stu.uob.edu.bh', '$2y$10$2ognlAZ3SgsxjCvUXR6ASeUc.Xmx2dZVY520CfSnYzALrZ/RPBlMi', NULL, 'muhanna', 'noor', 'Student'),
-(7, '11114444@stu.uob.edu.bh', '$2y$10$kcg2tzOsCyJJbuE7tsK1feH7tOWoQWBUxz/ojACqVJpdjmrb/qSsq', 'uploads/Screenshot 2024-11-30 153318.png', 'muhanna', 'ahmed', 'Student');
+(7, '11114444@stu.uob.edu.bh', '$2y$10$kcg2tzOsCyJJbuE7tsK1feH7tOWoQWBUxz/ojACqVJpdjmrb/qSsq', 'uploads/Screenshot 2024-11-30 153318.png', 'muhanna', 'ahmed', 'Student'),
+(8, '123456789@stu.uob.edu.bh', '$2y$10$YorJERiQtMxPYMrZyDZ24Ovpoa6V50BAYLZ8V79LJeuqDf9usUz3q', 'https://avatar.iran.liara.run/public?436', 'O', 'A', 'Student');
 
 --
 -- Indexes for dumped tables
@@ -207,6 +208,12 @@ ALTER TABLE `Bookings`
 --
 ALTER TABLE `Rooms`
   MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
