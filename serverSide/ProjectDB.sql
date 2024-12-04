@@ -66,7 +66,7 @@ DELIMITER ;
 CREATE TABLE `Rooms` (
   `room_id` int(11) NOT NULL,
   `room_name` varchar(50) NOT NULL,
-  `room_type` enum('ClassRoom','MeetingRomm','Lab') NOT NULL,
+  `room_type` enum('ClassRoom','Lab') NOT NULL,
   `location` enum('IS','CS','CE', 'OpenLab') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -87,8 +87,8 @@ INSERT INTO `Rooms` (`room_id`, `room_name`, `room_type`, `location`) VALUES
 (10, 'S40-1010', 'ClassRoom', 'IS'),
 (11, 'S40-1011', 'ClassRoom', 'IS'),
 (12, 'S40-1012', 'Lab', 'IS'),
-(13, 'S40-1002', 'ClassRoom', 'OpenLab'),
-(14, 'S40-2001', 'ClassRoom', 'OpenLab'),
+(13, 'S40-1002', 'Lab', 'OpenLab'),
+(14, 'S40-2001', 'Lab', 'OpenLab'),
 (15, 'S40-2015', 'Lab', 'IS'),
 (16, 'S40-2005', 'Lab', 'IS'),
 (17, 'S40-2013', 'Lab', 'IS'),
