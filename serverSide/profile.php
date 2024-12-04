@@ -45,9 +45,9 @@ if (empty($user['profile_picture'])) {
     <p><strong>First Name:</strong> <?= htmlspecialchars($user['first_name']) ?></p>
     <p><strong>Last Name:</strong> <?= htmlspecialchars($user['last_name']) ?></p>
     <p><strong>Email:</strong> <?= htmlspecialchars($user['email']) ?></p>
-    <?php if (!$user['user_type'] === 'admin'):?>
+    <?php if ($user['user_type'] == 'Student' || $user['user_type'] == 'Staff'):?>
         <a href="profile.edit.php" class="button">Edit Profile</a>
-        <?php endif; ?>
+    <?php endif; ?>
     <a href="logout.php" class="button" style="background: linear-gradient(45deg, #ab6bff, #27014b);">Logout</a>
     <a href="index.php" class="button" style="background: linear-gradient(45deg, #ab6bff, #27014b);">back Home</a>
 </div>
