@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent scrolling if the image is larger than the screen */
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/uob.png') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(10px); /* Apply blur to the background image */
+    z-index: -1; /* Make sure it stays behind the content */
+}
+
+.main {
+    width: 800px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Ensure it stays above the blurred background */
+}
+
+.booking-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.building-selector {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.building {
+    width: 150px;
+    padding: 10px;
+    background: lightgray;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.building:hover {
+    background: #007bff;
+    color: white;
+}
+
+.lab-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.status {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.item {
+    position: relative;
+    font-size: 14px;
+}
+
+.item::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    margin-right: 5px;
+    border-radius: 2px;
+    vertical-align: middle;
+}
+
+.item:nth-child(1)::before {
+    background: white;
+    border: 1px solid gray;
+}
+
+.item:nth-child(2)::before {
+    background: gray;
+}
+
+.item:nth-child(3)::before {
+    background: #47a3ff;
+}
+
+.all-labs {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+}
+
+.lab {
+    width: 25px;
+    height: 25px;
+    background: white;
+    border: 1px solid gray;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.lab:hover::after {
+    content: attr(data-lab);
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.lab.booked {
+    background: gray;
+    cursor: not-allowed;
+}
+
+.lab.selected {
+    background: #47a3ff;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.booking-form.hidden {
+    display: none;
+}
+
+.booking-form input {
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
