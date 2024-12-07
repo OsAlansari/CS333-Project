@@ -1,76 +1,58 @@
 <?php
 session_start();
-include 'config.php'; // Include the database connection
+include 'config.php'; // Include database connection
 
+// Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /login-register.php'); // Redirect to login page
+    header('Location: /login-register.php');
     exit();
 }
+
 $user_id = $_SESSION['user_id'];
 
-function add_booking($pdo, $user_id, $room_id, $start_time, $end_time, $purpose, $created_at) {
-    try {
-        $sql = "INSERT INTO bookings (user_id, room_id, start_time, end_time, purpose, created_at) VALUES (?, ?, ?, ?, ?, ?)";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$user_id, $room_id, $start_time, $end_time, $purpose, $created_at]);
-        echo json_encode(["success" => true]);
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
-    }
-}
+try {
+    // Fetch all rooms from the database
+    $stmt = $pdo->prepare("SELECT * FROM Rooms ORDER BY location, room_name");
+    $stmt->execute();
+    $rooms = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $room_id = $_POST['room_id'];
-    $start_time = $_POST['start_time'];
-    $end_time = $_POST['end_time'];
-    $purpose = $_POST['purpose'];
-    $created_at = date('Y-m-d H:i:s', time()); // Format the current time as SQL TIMESTAMP
-    add_booking($pdo, $user_id, $room_id, $start_time, $end_time, $purpose, $created_at);
+    // Group rooms by location
+    $grouped_rooms = [];
+    foreach ($rooms as $room) {
+        $grouped_rooms[$room['location']][] = $room;
+    }
+} catch (PDOException $e) {
+    die("Error fetching rooms: " . $e->getMessage());
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab Booking</title>
+    <title>Room Browse</title>
     <link rel="stylesheet" href="../Css/room_browse.css">
-    <script src="../Script/room_browse.js" defer></script>
 </head>
-
 <body>
-    <div class="main">
-        <div class="booking-container">
-            <div class="title">Lab Booking</div>
-            <div class="building-selector">
-                <div class="building" data-building="1">S40 (1)</div>
-                <div class="building" data-building="2">S40 (2)</div>
-                <div class="building" data-building="3">S40 (3)</div>
-            </div>
-
-            <div class="lab-selector hidden">
-                <div class="status">
-                    <div class="item">Available</div>
-                    <div class="item">Booked</div>
-                    <div class="item">Selected</div>
+    <h1>Browse Rooms</h1>
+    <div class="room-container">
+        <?php foreach ($grouped_rooms as $location => $rooms): ?>
+            <div class="location-section">
+                <h2><?php echo htmlspecialchars($location); ?> Rooms</h2>
+                <div class="room-grid">
+                    <?php foreach ($rooms as $room): ?>
+                        <div class="room-card">
+                            <h3><?php echo htmlspecialchars($room['room_name']); ?></h3>
+                            <p>Type: <?php echo htmlspecialchars($room['room_type']); ?></p>
+                            <p>Location: <?php echo htmlspecialchars($room['location']); ?></p>
+                            <!-- Add the View Details link here -->
+                            <a href="room_details.php?id=<?php echo urlencode($room['room_id']); ?>">View Details</a>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
-                <div class="all-labs">
-                </div>
             </div>
-
-            <div class="booking-form hidden">
-                <form id="bookingForm">
-                    <label for="username">Name:</label>
-                    <input type="text" id="username" required>
-                    <label for="date">Date:</label>
-                    <input type="date" id="date" required>
-                    <label for="time">Time:</label>
-                    <input type="time" id="time" required>
-                    <button type="submit">Book</button>
-                </form>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 </body>
 </html>
