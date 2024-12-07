@@ -2,6 +2,8 @@
 // Start the session
 session_start();
 
+$isLoggedIn = isset($_SESSION['user_id']);
+
 include 'config.php';
 
 $user_id = $_SESSION['user_id'];
