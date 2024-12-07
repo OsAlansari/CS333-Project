@@ -4,6 +4,9 @@ session_start();
 
 // Check if the user is logged in
 $isLoggedIn = isset($_SESSION['user_id']);
+$user_id = $isLoggedIn ? $_SESSION['user_id'] : null;
+
+include 'config.php';
 
 // Fetch user's bookings
 $userBookings = [];
