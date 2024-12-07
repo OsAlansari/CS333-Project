@@ -21,6 +21,13 @@ try {
     foreach ($rooms as $room) {
         $grouped_rooms[$room['location']][] = $room;
     }
+
+    // Move OpenLab to the top
+    if (isset($grouped_rooms['OpenLab'])) {
+        $openLabRooms = $grouped_rooms['OpenLab'];
+        unset($grouped_rooms['OpenLab']);
+        $grouped_rooms = ['OpenLab' => $openLabRooms] + $grouped_rooms;
+    }
 } catch (PDOException $e) {
     die("Error fetching rooms: " . $e->getMessage());
 }

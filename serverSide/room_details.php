@@ -71,13 +71,14 @@ try {
         }
     }
 
-    // Fetch all bookings for this room by the user
+    // Fetch all bookings for this room
     $bookingsStmt = $pdo->prepare("
-        SELECT * FROM Bookings 
-        WHERE room_id = ?  AND user_id = ?
+        SELECT start_time, end_time 
+        FROM Bookings 
+        WHERE room_id = ?
         ORDER BY start_time
     ");
-    $bookingsStmt->execute([$room_id, $user_id]);
+    $bookingsStmt->execute([$room_id]);
     $bookings = $bookingsStmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     die("Error: " . $e->getMessage());
@@ -97,7 +98,7 @@ try {
         <h1><?php echo htmlspecialchars($room['room_name']); ?> Details</h1>
         <p><strong>Type:</strong> <?php echo htmlspecialchars($room['room_type']); ?></p>
         <p><strong>Location:</strong> <?php echo htmlspecialchars($room['location']); ?></p>
-        <p><strong>Capacity:</strong> <?php echo htmlspecialchars($room['capacity']); ?></p>
+        <p><strong>Capacity:</strong> <?php echo htmlspecialchars($room['capacity']); ?> attendees</p>
         <p><strong>Equipment:</strong> <?php echo htmlspecialchars($room['equipment']); ?></p>
 
         <!-- Display messages -->
@@ -124,7 +125,7 @@ try {
         </form>
 
         <!-- Current Bookings -->
-        <h2>Your bookings for this room</h2>
+        <h2>Bookings for this room</h2>
         <div class="bookings">
             <?php if (!empty($bookings)): ?>
                 <table>
@@ -133,8 +134,6 @@ try {
                             <th>Date</th>
                             <th>Start Time</th>
                             <th>End Time</th>
-                            <th>Purpose</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -143,18 +142,6 @@ try {
                                 <td><?php echo htmlspecialchars(date('Y-m-d', strtotime($booking['start_time']))); ?></td>
                                 <td><?php echo htmlspecialchars(date('H:i', strtotime($booking['start_time']))); ?></td>
                                 <td><?php echo htmlspecialchars(date('H:i', strtotime($booking['end_time']))); ?></td>
-                                <td><?php echo htmlspecialchars($booking['purpose']); ?></td>
-                                <td>
-                                    <?php if ($booking['user_id'] === $user_id): ?>
-                                        <form method="POST">
-                                            <input type="hidden" name="action" value="cancel">
-                                            <input type="hidden" name="booking_id" value="<?php echo $booking['booking_id']; ?>">
-                                            <button type="submit">Cancel</button>
-                                        </form>
-                                    <?php else: ?>
-                                        N/A
-                                    <?php endif; ?>
-                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

@@ -18,18 +18,48 @@ h1, h2 {
 }
 
 .message { 
-    margin: 10px 0; padding: 10px; border-radius: 5px; }
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
 .success { 
-    background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
 .error { 
-    background-color: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
 .bookings table { 
-    width: 100%; border-collapse: collapse; margin: 20px 0; }
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
 .bookings th, .bookings td {
-    padding: 10px; border: 1px solid #ddd; text-align: center; }
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
 form {
-    margin: 20px 0; }
+    margin: 20px 0;
+}
+
 label {
-    display: block; margin-bottom: 5px; }
+    display: block; 
+    margin-bottom: 5px;
+}
+
 input, textarea, button {
-    width: 100%; margin-bottom: 10px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}

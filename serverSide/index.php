@@ -4,7 +4,6 @@ session_start();
 
 // Check if the user is logged in
 $isLoggedIn = isset($_SESSION['user_id']);
-$user_id = $isLoggedIn ? $_SESSION['user_id'] : null;
 
 include 'config.php';
 
@@ -46,7 +45,7 @@ if ($isLoggedIn) {
                     <span class="material-symbols-outlined">person</span>Profile
                 </a></li>
                 <li><a href="room_browse.php">
-                    <span class="">Bowse Rooms</span>Bowse Rooms
+                    <span class=""></span>Bowse Rooms
                 </a></li>
                 <li><a href="room_details.php">
                 </a></li>
