@@ -14,6 +14,11 @@ $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
 $stmt->execute([$user_id]);
 $user = $stmt->fetch();
 
+if ($user['user_type'] == 'Admin') {
+    header('Location: admin.php');
+    exit();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $profile_picture = $user['profile_picture']; // Retain current picture by default

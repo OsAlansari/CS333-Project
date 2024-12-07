@@ -38,15 +38,23 @@ try {
 
         // Check for booking conflicts
         $conflictStmt = $pdo->prepare("
-            SELECT * FROM Bookings 
+            SELECT COUNT(*) FROM Bookings 
             WHERE room_id = ? 
-            AND ((start_time <= ? AND end_time > ?))
+            AND ((start_time < ? AND end_time > ?))
         ");
         $conflictStmt->execute([$room_id, $start_datetime, $end_datetime]);
+        $conflictCount = $conflictStmt->fetchColumn();
 
-        if ($conflictStmt->rowCount() > 0) {
+        // Fetch user Type
+        $stmt = $pdo->prepare("SELECT user_type FROM users WHERE id = ?");
+        $stmt->execute([$user_id]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (($user['user_type'] == 'Student' && $room['location'] == 'OpenLab') || ($user['user_type'] == 'Admin')) {
+            $error_message = "You are not allowed to book this room.";
+        } elseif ($conflictCount > 0) {
             $error_message = "Conflict: The selected timeslot is already booked.";
-        } else {
+        } else{
             // Insert booking
             $insertStmt = $pdo->prepare("
                 INSERT INTO Bookings (user_id, room_id, start_time, end_time, purpose, created_at) 
@@ -54,20 +62,6 @@ try {
             ");
             $insertStmt->execute([$user_id, $room_id, $start_datetime, $end_datetime, $purpose]);
             $success_message = "Booking successful!";
-        }
-    }
-
-    // Handle booking cancellation
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'cancel') {
-        $booking_id = filter_var($_POST['booking_id'], FILTER_SANITIZE_NUMBER_INT);
-
-        $deleteStmt = $pdo->prepare("DELETE FROM Bookings WHERE booking_id = ? AND user_id = ?");
-        $deleteStmt->execute([$booking_id, $user_id]);
-
-        if ($deleteStmt->rowCount() > 0) {
-            $success_message = "Booking successfully canceled.";
-        } else {
-            $error_message = "Unable to cancel booking or insufficient permissions.";
         }
     }
 

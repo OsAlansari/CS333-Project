@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 04, 2024 at 07:01 PM
+-- Generation Time: Dec 07, 2024 at 04:40 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -89,7 +89,7 @@ INSERT INTO `Rooms` (`room_id`, `room_name`, `room_type`, `location`, `capacity`
 (10, 'S40-1010', 'ClassRoom', 'IS', 50, 'Projector, PC for presenter, Whiteboard'),
 (11, 'S40-1011', 'ClassRoom', 'IS', 50, 'Projector, PC for presenter, Whiteboard'),
 (12, 'S40-1012', 'Lab', 'IS', 30, 'Projector, PC for presenter, Whiteboard, PC for attendees'),
-(13, 'S40-1002', 'Lab', 'OpenLab', 100 , 'Projector, PC for presenter, PC for attendees'),
+(13, 'S40-1002', 'Lab', 'OpenLab', 100, 'Projector, PC for presenter, PC for attendees'),
 (14, 'S40-2001', 'Lab', 'OpenLab', 75, 'Projector, PC for presenter, PC for attendees'),
 (15, 'S40-2015', 'Lab', 'IS', 30, 'Projector, PC for presenter, Whiteboard, PC for attendees'),
 (16, 'S40-2005', 'Lab', 'IS', 30, 'Projector, PC for presenter, Whiteboard, PC for attendees'),
@@ -162,14 +162,16 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `password`, `profile_picture`, `first_name`, `last_name`, `user_type`) VALUES
 (0, 'Admin', '$2y$10$zTewDPwnjeSkxK6kcxJ/1OWR2Ko3faqIBM4nOHCsC3/YA.gm6v8mm', NULL, 'Admin', 'Admin', 'Admin'),
-(1, '20198028@stu.uob.edu.bh', '$2y$10$LKK2zccKXvbTRIfJ3663Ve5tKzYzdRfbSI7IjkzkYm9lF.jHklZJ6', 'uploads/GJv49FTNLGeKMT5aVMidSdsnXyu4KyQ8w4wrYoc8_nBfitgROIDlSSFzEROlDEo_IrSMh6a3FynN72pOj6zj19LwZo6z90dqoGAO=e365-pa-nu-s0.webp', '', '', 'Student'),
-(2, '20201234@stu.uob.edu.bh', '$2y$10$huDr7RudUb5co0BgyXuXIOEVYp1z7x2IPCFrcfilGnrfOk5zsy4ru', NULL, '', '', 'Student'),
-(3, '20198027@stu.uob.edu.bh', '$2y$10$YBvVSyABOa069FXXJeLvMuxJum43BPIvEfrbaCo4XGrrreeJmnkyy', NULL, 'muhanna', 'jamal', 'Student'),
-(4, '20198021@stu.uob.edu.bh', '$2y$10$4.a3A0laDpp5PGwHwiQe6.1SWxzvH2eqnjLiUQgOv0rdeZ0fOoFhO', NULL, 'muhanna', 'jamal', 'Student'),
-(5, '12345678@stu.uob.edu.bh', '$2y$10$M.xA71l3SXbijHJyz2/6de9l38FLVPwdkc92oYtfSNOFJIt9y.m1G', NULL, 'muhanna', 'ahmed', 'Student'),
-(6, '87654321@stu.uob.edu.bh', '$2y$10$2ognlAZ3SgsxjCvUXR6ASeUc.Xmx2dZVY520CfSnYzALrZ/RPBlMi', NULL, 'muhanna', 'noor', 'Student'),
-(7, '11114444@stu.uob.edu.bh', '$2y$10$kcg2tzOsCyJJbuE7tsK1feH7tOWoQWBUxz/ojACqVJpdjmrb/qSsq', 'uploads/Screenshot 2024-11-30 153318.png', 'muhanna', 'ahmed', 'Student'),
-(8, '123456789@stu.uob.edu.bh', '$2y$10$YorJERiQtMxPYMrZyDZ24Ovpoa6V50BAYLZ8V79LJeuqDf9usUz3q', 'https://avatar.iran.liara.run/public?436', 'O', 'A', 'Student');
+(1, '20194952@stu.uob.edu.bh', '$2y$10$csoJLLH2gfbUtqZF.U8m5u04cLpBUptWAeS5V5U/1QzoV.fOWG1Jm', NULL, 'Mohammed', 'Hussain', 'Student'),
+(2, 'Mohammed@uob.edu.bh', '$2y$10$oUszDjv.iohamTXkZi5np.GuC9uRkkcdHUEBnf991E/Y/APg98y66', NULL, 'Mohammed', 'Hussain', 'Staff'),
+(3, '20198028@stu.uob.edu.bh', '$2y$10$eGk/IQdLWZc6wOv/0Bx7N.ehBFNsV3QqfTz.b7FH5kjpjecs/Eh6K', NULL, 'Muhanna', 'Ahmed', 'Student'),
+(4, 'Muhanna@uob.edu.bh', '$2y$10$lnmDUgQ.fAuXPz/cWlNuyespbmDO5SoOOKrScDQnbjhHq01qtV7Im', NULL, 'Muhanna', 'Ahmed', 'Staff'),
+(5, '20200567@stu.uob.edu.bh', '$2y$10$V6PSxmiC7LEECabEhZNgLeqwjO0Y27a13NnaSefxj/o7G1kSu6MOG', NULL, 'Zainab', 'Abdali', 'Student'),
+(6, 'Zainab@uob.edu.bh', '$2y$10$Vkrk/KGCdZs9Z2r9KDQFquJSCaKL.BEWjIguZ1miNsgAnLJC2CPbe', NULL, 'Zainab', 'Abdali', 'Staff'),
+(7, '202103778@stu.uob.edu.bh', '$2y$10$tIWIJakjfCOPXUgihSQzOey6VQUdPL39Xkwv8K0JiSyBBzCWz43NG', NULL, 'Osama', 'Alansari', 'Student'),
+(8, 'Osama@uob.edu.bh', '$2y$10$iE3a9zRichTzjJgeiclRROspO99lIvKx5ALlzieuxjmHTdVyw1A8u', NULL, 'Osama', 'Alansari', 'Staff'),
+(9, '20192186@stu.uob.edu.bh', '$2y$10$Mtn7qU6FyzuZr7jO5Vf3ie4/cdpOrU0s.pKG1m7j505p0/j2wPVuq', NULL, 'Omar', 'Hany', 'Student'),
+(10, 'Omar@uob.edu.bh', '$2y$10$iZBg7ijpo1M0WVlqQJm1QOFPlsuXSTuSEzyruBln/SRjnbhhrrv/6', NULL, 'Omar', 'Hany', 'Staff');
 
 --
 -- Indexes for dumped tables
@@ -203,7 +205,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `Bookings`
 --
 ALTER TABLE `Bookings`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Rooms`
@@ -215,7 +217,7 @@ ALTER TABLE `Rooms`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables

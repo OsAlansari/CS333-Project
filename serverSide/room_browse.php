@@ -1,14 +1,20 @@
 <?php
 session_start();
+// Check if the user is logged in
+$isLoggedIn = isset($_SESSION['user_id']);
 include 'config.php'; // Include database connection
 
 // Check if the user is logged in
-if (!isset($_SESSION['user_id'])) {
+if (!$isLoggedIn) {
     header('Location: /login-register.php');
     exit();
 }
 
+// Fetch user type
 $user_id = $_SESSION['user_id'];
+$stmt = $pdo->prepare("SELECT user_type FROM users WHERE id = ?");
+$stmt->execute([$user_id]);
+$type = $stmt->fetch();
 
 try {
     // Fetch all rooms from the database
@@ -39,11 +45,41 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Room Browse</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="../Css/header.css">
     <link rel="stylesheet" href="../Css/room_browse.css">
+    <link rel="stylesheet" href="../Css/footer.css">
 </head>
 <body>
-    <h1>Browse Rooms</h1>
-    <div class="room-container">
+<header>
+    <nav>
+    <img src="../css/Logo.png">
+    <h1>IT collage booking system</h1>
+            <ul>
+                    <li><a href="profile.php">
+                        <span class="material-symbols-outlined">person</span>Profile
+                    </a></li>
+                    <li><a href="index.php">
+                        <span class="material-symbols-outlined">house</span>Home Page
+                    </a></li>
+                    <?php if ($type['user_type'] == 'Admin'): ?>
+                        <li><a href="admin.php">
+                            <span class="material-symbols-outlined">admin_panel_settings</span>Admin Panel
+                        </a></li>
+                        <?php else: ?>
+                        <li><a href="manage_booking.php">
+                            <span class="material-symbols-outlined">table</span>Manage Your Bookings
+                        </a></li>
+                        <?php endif; ?>
+                    <li><a href="logout.php">
+                        <span class="material-symbols-outlined">logout</span>Log Out
+                    </a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Browse Rooms</h1>
+        <div class="room-container">
         <?php foreach ($grouped_rooms as $location => $rooms): ?>
             <div class="location-section">
                 <h2><?php echo htmlspecialchars($location); ?> Rooms</h2>
@@ -61,5 +97,20 @@ try {
             </div>
         <?php endforeach; ?>
     </div>
+    </main>
+    <footer>
+        <nav>
+            <p>
+            Contact us:
+            <a href="mailto:booking.help@uob.edu.bh">booking.help@uob.edu.bh</a>
+            </p>
+            <p>
+            Follow us on social media:
+            <a href="https://twitter.com/uobedubh">Twitter</a>
+            <a href="https://www.instagram.com/uobedubh">Instagram</a>
+            </p>
+            <p>&copy; 2024 University of Bahrain | All rights Reserved</p>
+        </nav>
+    </footer>
 </body>
 </html>

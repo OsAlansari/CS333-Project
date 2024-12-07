@@ -42,11 +42,13 @@ if (empty($user['profile_picture'])) {
 <div class="profile-container">
     <h1>Profile</h1>
     <img src="<?= htmlspecialchars($user['profile_picture']) ?>" alt="Profile Picture">
+    <?php if ($user['user_type'] == 'Student' || $user['user_type'] == 'Staff'):?>
     <p><strong>First Name:</strong> <?= htmlspecialchars($user['first_name']) ?></p>
     <p><strong>Last Name:</strong> <?= htmlspecialchars($user['last_name']) ?></p>
     <p><strong>Email:</strong> <?= htmlspecialchars($user['email']) ?></p>
-    <?php if ($user['user_type'] == 'Student' || $user['user_type'] == 'Staff'):?>
-        <a href="profile.edit.php" class="button">Edit Profile</a>
+    <a href="profile.edit.php" class="button">Edit Profile</a>
+    <?php else: ?>
+    <p><strong>You Are The Admin</strong></p>
     <?php endif; ?>
     <a href="logout.php" class="button" style="background: linear-gradient(45deg, #ab6bff, #27014b);">Logout</a>
     <a href="index.php" class="button" style="background: linear-gradient(45deg, #ab6bff, #27014b);">back Home</a>

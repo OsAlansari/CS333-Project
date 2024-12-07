@@ -1,15 +1,25 @@
-body {
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Main */
+main body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f9;
     color: #333;
 }
-h1 {
-    text-align: center;
+main h1 {
     margin: 20px 0;
     color: #222;
+    text-align: center;
 }
+
 .room-container {
     padding: 20px;
     display: flex;
