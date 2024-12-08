@@ -205,7 +205,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `Bookings`
 --
 ALTER TABLE `Bookings`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `Rooms`

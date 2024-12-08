@@ -134,7 +134,7 @@ unset($booking); // Break the reference with the last element
                     <tr>
                         <td><?php echo htmlspecialchars($booking['room_name']); ?></td>
                         <td><?php echo htmlspecialchars($booking['location']); ?></td>
-                        <td><?php echo htmlspecialchars(date('Y-m-d', strtotime($booking['start_time']))); ?></td>
+                        <td><?php echo htmlspecialchars(date('d-m-Y', strtotime($booking['start_time']))); ?></td>
                         <td><?php echo htmlspecialchars(date('H:i', strtotime($booking['start_time']))); ?></td>
                         <td><?php echo htmlspecialchars(date('H:i', strtotime($booking['end_time']))); ?></td>
                         <td><?php echo htmlspecialchars($booking['purpose']); ?></td>
