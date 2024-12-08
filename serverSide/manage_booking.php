@@ -64,8 +64,21 @@ try {
 
 date_default_timezone_set('Asia/Bahrain');
 $current_date = new DateTime();
-$booking_start_date = new DateTime($booking['start_time']);
-$booking_end_date = new DateTime($booking['end_time']);
+
+foreach ($userBookings as &$booking) {
+    $booking_start_date = new DateTime($booking['start_time']);
+    $booking_end_date = new DateTime($booking['end_time']);
+
+    if ($current_date < $booking_start_date) {
+        $booking['status'] = 'Upcoming';
+    } elseif ($current_date > $booking_end_date) {
+        $booking['status'] = 'Past';
+    } else {
+        $booking['status'] = 'Current';
+    }
+}
+unset($booking); // Break the reference with the last element
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -125,21 +138,17 @@ $booking_end_date = new DateTime($booking['end_time']);
                         <td><?php echo htmlspecialchars(date('H:i', strtotime($booking['start_time']))); ?></td>
                         <td><?php echo htmlspecialchars(date('H:i', strtotime($booking['end_time']))); ?></td>
                         <td><?php echo htmlspecialchars($booking['purpose']); ?></td>
-                        <?php if ($current_date < $booking_start_date): ?>
-                            <td class="status upcoming">Up coming</td>
+                        <td class="status <?php echo strtolower($booking['status']); ?>"><?php echo htmlspecialchars($booking['status']); ?></td>
                         <td>
-                            <form method="POST">
-                                <input type="hidden" name="booking_id" value="<?php echo $booking['booking_id']; ?>">
-                                <button type="submit">Cancel</button>
-                            </form>
+                            <?php if ($booking['status'] == 'Upcoming'): ?>
+                                <form method="POST">
+                                    <input type="hidden" name="booking_id" value="<?php echo $booking['booking_id']; ?>">
+                                    <button type="submit">Cancel</button>
+                                </form>
+                            <?php else: ?>
+                                N/A
+                            <?php endif; ?>
                         </td>
-                        <?php elseif ($current_date > $booking_end_date): ?>
-                            <td class="status past">Past</td>
-                            <td class="NA">N/A</td>
-                        <?php else: ?>
-                            <td class="status current">Current</td>
-                            <td class="NA">N/A</td>
-                        <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
