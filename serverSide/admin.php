@@ -14,6 +14,7 @@ if ($type['user_type'] != 'Admin') {
     header('Location: index.php');
     exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,8 +54,53 @@ if ($type['user_type'] != 'Admin') {
 
     <!-- Main Content -->
     <main>
-        <h1>Admin Panel</h1>
-    </main>
+    <h1>Admin Panel</h1>
+    <div class="admin-container">
+        <!-- Rooms Control Section -->
+        <div class="section">
+            <h2>Rooms Control</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Add Room</h3>
+                    <p>Add a new room to the system</p>
+                    <a href="../serverSide/add_room.php">Click here!</a>
+                </div>
+                <div class="card">
+                    <h3>Edit Room</h3>
+                    <p>Edit an existing room in the system</p>
+                    <a href="../serverSide/edit_room.php">Click here!</a>
+                </div>
+                <div class="card">
+                    <h3>Delete Room</h3>
+                    <p>Delete an existing room from the system</p>
+                    <a href="../serverSide/delete_room.php">Click here!</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bookings Control Section -->
+        <div class="section">
+            <h2>Bookings Control</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Add Booking</h3>
+                    <p>Add a new booking to the system</p>
+                    <a href="../serverSide/add_booking.php">Click here!</a>
+                </div>
+                <div class="card">
+                    <h3>Edit Booking</h3>
+                    <p>Edit an existing booking in the system</p>
+                    <a href="../serverSide/edit_booking.php">Click here!</a>
+                </div>
+                <div class="card">
+                    <h3>Delete Booking</h3>
+                    <p>Delete an existing booking from the system</p>
+                    <a href="../serverSide/delete_booking.php">Click here!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 
     <footer>
         <nav>
