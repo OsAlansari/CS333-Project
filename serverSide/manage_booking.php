@@ -61,6 +61,11 @@ try {
 } catch (PDOException $e) {
     die("Error fetching bookings: " . $e->getMessage());
 }
+
+date_default_timezone_set('Asia/Bahrain');
+$current_date = new DateTime();
+$booking_start_date = new DateTime($booking['start_time']);
+$booking_end_date = new DateTime($booking['end_time']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,6 +112,7 @@ try {
                     <th>Start Time</th>
                     <th>End Time</th>
                     <th>Purpose</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -119,12 +125,21 @@ try {
                         <td><?php echo htmlspecialchars(date('H:i', strtotime($booking['start_time']))); ?></td>
                         <td><?php echo htmlspecialchars(date('H:i', strtotime($booking['end_time']))); ?></td>
                         <td><?php echo htmlspecialchars($booking['purpose']); ?></td>
+                        <?php if ($current_date < $booking_start_date): ?>
+                            <td class="status upcoming">Up coming</td>
                         <td>
                             <form method="POST">
                                 <input type="hidden" name="booking_id" value="<?php echo $booking['booking_id']; ?>">
                                 <button type="submit">Cancel</button>
                             </form>
                         </td>
+                        <?php elseif ($current_date > $booking_end_date): ?>
+                            <td class="status past">Past</td>
+                            <td class="NA">N/A</td>
+                        <?php else: ?>
+                            <td class="status current">Current</td>
+                            <td class="NA">N/A</td>
+                        <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
