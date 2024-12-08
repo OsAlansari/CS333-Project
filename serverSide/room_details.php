@@ -16,6 +16,8 @@ if (!isset($_GET['id'])) {
 // Sanitize and validate the input
 $room_id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
 
+date_default_timezone_set('Asia/Bahrain');
+
 try {
     // Fetch room details
     $stmt = $pdo->prepare("SELECT room_name, room_type, location, capacity, equipment FROM Rooms WHERE room_id = ?");
@@ -36,32 +38,44 @@ try {
         $start_datetime = "$date $start_time";
         $end_datetime = "$date $end_time";
 
-        // Check for booking conflicts
-        $conflictStmt = $pdo->prepare("
-            SELECT COUNT(*) FROM Bookings 
-            WHERE room_id = ? 
-            AND ((start_time < ? AND end_time > ?))
-        ");
-        $conflictStmt->execute([$room_id, $start_datetime, $end_datetime]);
-        $conflictCount = $conflictStmt->fetchColumn();
+        // Ensure the booking date is not today or earlier
+        $current_date = new DateTime();
+        $booking_date = new DateTime($date);
 
-        // Fetch user Type
-        $stmt = $pdo->prepare("SELECT user_type FROM users WHERE id = ?");
-        $stmt->execute([$user_id]);
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if (($user['user_type'] == 'Student' && $room['location'] == 'OpenLab') || ($user['user_type'] == 'Admin')) {
-            $error_message = "You are not allowed to book this room.";
-        } elseif ($conflictCount > 0) {
-            $error_message = "Conflict: The selected timeslot is already booked.";
-        } else{
-            // Insert booking
-            $insertStmt = $pdo->prepare("
-                INSERT INTO Bookings (user_id, room_id, start_time, end_time, purpose, created_at) 
-                VALUES (?, ?, ?, ?, ?, NOW())
+        if ($booking_date <= $current_date->setTime(0, 0, 0)) {
+            $error_message = "Error: You can only book for upcoming dates.";
+        } elseif (strtotime($start_datetime) >= strtotime($end_datetime)) {
+            $error_message = "Error: Start time must be earlier than end time.";
+        }elseif (strtotime($start_time) < strtotime('08:00') || strtotime($end_time) > strtotime('20:00')) {
+            $error_message = "Error: Booking slots are between 08:00 and 20:00.";
+        }else {
+            // Check for booking conflicts
+            $conflictStmt = $pdo->prepare("
+                SELECT COUNT(*) FROM Bookings 
+                WHERE room_id = ? 
+                AND ((start_time < ? AND end_time > ?))
             ");
-            $insertStmt->execute([$user_id, $room_id, $start_datetime, $end_datetime, $purpose]);
-            $success_message = "Booking successful!";
+            $conflictStmt->execute([$room_id, $end_datetime, $start_datetime]);
+            $conflictCount = $conflictStmt->fetchColumn();
+
+            // Fetch user type
+            $stmt = $pdo->prepare("SELECT user_type FROM users WHERE id = ?");
+            $stmt->execute([$user_id]);
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (($user['user_type'] == 'Student' && $room['location'] == 'OpenLab') || ($user['user_type'] == 'Admin')) {
+                $error_message = "You are not allowed to book this room.";
+            } elseif ($conflictCount > 0) {
+                $error_message = "Conflict: The selected timeslot is already booked.";
+            } else {
+                // Insert booking
+                $insertStmt = $pdo->prepare("
+                    INSERT INTO Bookings (user_id, room_id, start_time, end_time, purpose, created_at) 
+                    VALUES (?, ?, ?, ?, ?, NOW())
+                ");
+                $insertStmt->execute([$user_id, $room_id, $start_datetime, $end_datetime, $purpose]);
+                $success_message = "Booking successful!";
+            }
         }
     }
 
@@ -108,11 +122,11 @@ try {
         <form method="POST">
             <input type="hidden" name="action" value="book">
             <label for="date">Date:</label>
-            <input type="date" name="date" id="date" required>
+            <input type="date" name="date" id="date" required min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>">
             <label for="start_time">Start Time:</label>
-            <input type="time" name="start_time" id="start_time" required>
+            <input type="time" name="start_time" id="start_time" required min="08:00">
             <label for="end_time">End Time:</label>
-            <input type="time" name="end_time" id="end_time" required>
+            <input type="time" name="end_time" id="end_time" required max="20:00">
             <label for="purpose">Purpose:</label>
             <textarea name="purpose" id="purpose" required></textarea>
             <button type="submit">Book Room</button>
@@ -140,7 +154,7 @@ try {
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <?php else: ?>
+            <?php else: ?>
                 <p>No bookings for this room yet.</p>
             <?php endif; ?>
         </div>
