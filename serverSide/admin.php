@@ -1,8 +1,12 @@
 <?php
 // Start the session
 session_start();
-
 include 'config.php';
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: /login-register.php');
+    exit();
+}
 
 // Fetch user type
 $user_id = $_SESSION['user_id'];

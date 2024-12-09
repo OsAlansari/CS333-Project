@@ -7,7 +7,16 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
+// Fetch user type
 $user_id = $_SESSION['user_id'];
+$stmt = $pdo->prepare("SELECT user_type FROM users WHERE id = ?");
+$stmt->execute([$user_id]);
+$type = $stmt->fetch();
+
+if ($type['user_type'] != 'Admin') {
+    header('Location: index.php');
+    exit();
+}
 
 date_default_timezone_set('Asia/Bahrain');
 

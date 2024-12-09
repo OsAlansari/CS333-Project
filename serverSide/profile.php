@@ -14,12 +14,6 @@ $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
 $stmt->execute([$user_id]);
 $user = $stmt->fetch();
 
-if (!$user) {
-    session_destroy();
-    header('Location: login.php');
-    exit();
-}
-
 // If the user doesn't have a profile picture, assign a random one
 if (empty($user['profile_picture'])) {
     $random_profile_image = 'https://avatar.iran.liara.run/public?' . rand(1, 1000);

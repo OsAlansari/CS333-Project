@@ -1,11 +1,10 @@
 <?php
 // Start the session
 session_start();
+include 'config.php';
 
 // Check if the user is logged in
 $isLoggedIn = isset($_SESSION['user_id']);
-
-include 'config.php';
 
 // Fetch user type
 $user_id = $_SESSION['user_id'];
