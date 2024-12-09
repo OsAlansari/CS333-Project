@@ -44,8 +44,8 @@ if (empty($user['profile_picture'])) {
     <?php else: ?>
     <p><strong>You Are The Admin</strong></p>
     <?php endif; ?>
-    <a href="logout.php" class="button" style="background: linear-gradient(45deg, #ab6bff, #27014b);">Logout</a>
-    <a href="index.php" class="button" style="background: linear-gradient(45deg, #ab6bff, #27014b);">back Home</a>
+    <a href="logout.php" class="button" style="background: linear-gradient(45deg, #6b6eff, #06014b);">Logout</a>
+    <a href="index.php" class="button" style="background: linear-gradient(45deg, #6b6eff, #06014b);">Home Page</a>
 </div>
 </body>
 </html>

@@ -89,7 +89,7 @@ unset($booking); // Break the reference with the last element
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="../Css/header.css">
     <link rel="stylesheet" href="../Css/manage_booking.css">
-    <link rel="stylesheet" href="../Css/footer.css">
+    
 </head>
 <body>
 <header>
@@ -157,12 +157,6 @@ unset($booking); // Break the reference with the last element
         <p class="no-bookings">You have no booked rooms yet. <a href="room_browse.php">Book a room now</a>.</p>
     <?php endif; ?>
 </main>
-<footer>
-    <nav>
-        <p>Contact us: <a href="mailto:booking.help@uob.edu.bh">booking.help@uob.edu.bh</a></p>
-        <p>Follow us on social media: <a href="https://twitter.com/uobedubh">Twitter</a> <a href="https://www.instagram.com/uobedubh">Instagram</a></p>
-        <p>&copy; 2024 University of Bahrain | All rights Reserved</p>
-    </nav>
-</footer>
+
 </body>
 </html>

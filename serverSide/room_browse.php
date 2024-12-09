@@ -80,9 +80,7 @@ if (isset($_GET['search'])) {
     <nav>
     <img src="../css/Logo.png">
     <h1>IT collage booking system</h1>
-    <form method="GET" action="room_browse.php">
-           
-        </form>
+   
             <ul>
                     <li><a href="profile.php">
                         <span class="material-symbols-outlined">person</span>Profile
@@ -107,8 +105,10 @@ if (isset($_GET['search'])) {
     </header>
     <main>
         <h1>Browse Rooms</h1>
-        <input type="text" name="search" placeholder="Search by Room Name" value="<?= htmlspecialchars($search) ?>" required>
-         <button type="submit">Search</button>
+        <form method="GET" action="room_browse.php">
+            <input type="text" class="search" name="search" placeholder="Search by Room Name" value="<?= htmlspecialchars($search) ?>" required>
+            <button type="submit">Search</button>
+        </form>
         <div class="room-container">
         <?php foreach ($grouped_rooms as $location => $rooms): ?>
             <div class="location-section">
@@ -128,19 +128,6 @@ if (isset($_GET['search'])) {
         <?php endforeach; ?>
     </div>
     </main>
-    <footer>
-        <nav>
-            <p>
-            Contact us:
-            <a href="mailto:booking.help@uob.edu.bh">booking.help@uob.edu.bh</a>
-            </p>
-            <p>
-            Follow us on social media:
-            <a href="https://twitter.com/uobedubh">Twitter</a>
-            <a href="https://www.instagram.com/uobedubh">Instagram</a>
-            </p>
-            <p>&copy; 2024 University of Bahrain | All rights Reserved</p>
-        </nav>
-    </footer>
+    
 </body>
 </html>

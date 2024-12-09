@@ -78,18 +78,7 @@ body {
 }
 
 /* Buttons */
-.edit-profile-container .button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #fff;
-    background: linear-gradient(45deg, #3498db, #2ecc71);
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-}
+
 
 .edit-profile-container .button:hover {
     opacity: 0.9;
@@ -99,7 +88,7 @@ body {
     width: 100%;
     margin-top: 15px;
     padding: 12px;
-    background: linear-gradient(45deg, #ab6bff, #27014b);
+    background: linear-gradient(45deg, #6b6eff, #06014b);
     font-size: 1rem;
     color: #fff;
     border: none;

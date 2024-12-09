@@ -3,7 +3,7 @@ body, html {
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
-    color: #333;
+    color: #06014b;
 }
 
 /* Main */
@@ -14,7 +14,7 @@ main {
 
 main h1 {
     font-size: 2.5em;
-    color: #222;
+    color: #06014b;
 }
 
 main p {
@@ -36,7 +36,7 @@ main p {
 }
 
 .bookings-table th {
-    background-color: #f4f4f4;
+    background-color: #dbdaf5;
 }
 
 .bookings-table tr:nth-child(even) {

@@ -4,7 +4,7 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  color: #0c0c0c;
+  
   background-color: #ffffff;
   overflow-x: hidden;
   margin: 0;
@@ -57,11 +57,11 @@ header nav ul li a {
   font-weight: bold;
   padding: 0.5em 1em;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  
 }
 
 header nav ul li a:hover {
-  background: #6d44b8;
+  background: #8785f0;
 }
 
 .material-symbols-outlined {
@@ -94,7 +94,7 @@ header nav ul li a:hover {
 }
 
 .heading_container h2 span {
-  color: #00bbf0;
+  color: #7072e6;
 }
 
 .heading_container p {
@@ -248,16 +248,16 @@ a:focus {
   .slider_section .detail-box .btn-box .btn1 {
     display: inline-block;
     padding: 10px 15px;
-    background-color: #00bbf0;
+    background-color: #7264f0;
     color: #ffffff;
-    border-radius: 0;
+    border-radius: 8px;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
     border: none;
   }
   
   .slider_section .detail-box .btn-box .btn1:hover {
-    background-color: #007fa4;
+    background-color: #6f57b1;
   }
   
   
