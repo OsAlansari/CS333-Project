@@ -37,7 +37,7 @@ if ($type['user_type'] != 'Admin') {
     <!-- Navigation Bar -->
     <header>
     <nav>
-    <img src="../css/Logo.png">
+    <img src="../images/Logo.png">
     <h1>IT collage booking system</h1>
             <ul>
                 <li><a href="profile.php">

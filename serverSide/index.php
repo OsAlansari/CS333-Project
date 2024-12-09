@@ -30,7 +30,7 @@ $type = $stmt->fetch();
     <!-- Material Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <!-- Additional CSS -->
-    <link rel="stylesheet" href="../Css/header.css">
+    
     <link rel="stylesheet" href="../Css/index.css">
     <link rel="stylesheet" href="../Css/footer.css">
 </head>

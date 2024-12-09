@@ -81,8 +81,7 @@ if (isset($_GET['search'])) {
     <img src="../css/Logo.png">
     <h1>IT collage booking system</h1>
     <form method="GET" action="room_browse.php">
-            <input type="text" name="search" placeholder="Search by Room Name" value="<?= htmlspecialchars($search) ?>" required>
-            <button type="submit">Search</button>
+           
         </form>
             <ul>
                     <li><a href="profile.php">
@@ -108,6 +107,8 @@ if (isset($_GET['search'])) {
     </header>
     <main>
         <h1>Browse Rooms</h1>
+        <input type="text" name="search" placeholder="Search by Room Name" value="<?= htmlspecialchars($search) ?>" required>
+         <button type="submit">Search</button>
         <div class="room-container">
         <?php foreach ($grouped_rooms as $location => $rooms): ?>
             <div class="location-section">
