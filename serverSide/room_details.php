@@ -129,7 +129,7 @@ try {
             <input type="time" name="end_time" id="end_time" required max="20:00">
             <label for="purpose">Purpose:</label>
             <textarea name="purpose" id="purpose" required></textarea>
-            <button type="submit">Book Room</button>
+            <button class="button" type="submit">Book Room</button>
         </form>
 
         <!-- Current Bookings -->
@@ -157,6 +157,7 @@ try {
             <?php else: ?>
                 <p>No bookings for this room yet.</p>
             <?php endif; ?>
+            <a href="index.php" class="button" style="background: linear-gradient(45deg, #6b6eff, #06014b);">Home Page</a>
         </div>
     </div>
 </body>
