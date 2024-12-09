@@ -16,26 +16,51 @@ $stmt = $pdo->prepare("SELECT user_type FROM users WHERE id = ?");
 $stmt->execute([$user_id]);
 $type = $stmt->fetch();
 
-try {
-    // Fetch all rooms from the database
-    $stmt = $pdo->prepare("SELECT * FROM Rooms ORDER BY location, room_name");
-    $stmt->execute();
+$search = '';
+if (isset($_GET['search'])) {
+    try {
+        $search = $_GET['search'];
+    $stmt = $pdo->prepare("SELECT * FROM Rooms WHERE room_name LIKE ? ORDER BY location, room_name");
+    $stmt->execute(['%' . $search . '%']);
     $rooms = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    // Group rooms by location
-    $grouped_rooms = [];
-    foreach ($rooms as $room) {
-        $grouped_rooms[$room['location']][] = $room;
+    
+        // Group rooms by location
+        $grouped_rooms = [];
+        foreach ($rooms as $room) {
+            $grouped_rooms[$room['location']][] = $room;
+        }
+    
+        // Move OpenLab to the top
+        if (isset($grouped_rooms['OpenLab'])) {
+            $openLabRooms = $grouped_rooms['OpenLab'];
+            unset($grouped_rooms['OpenLab']);
+            $grouped_rooms = ['OpenLab' => $openLabRooms] + $grouped_rooms;
+        }
+    } catch (PDOException $e) {
+        die("Error fetching rooms: " . $e->getMessage());
     }
-
-    // Move OpenLab to the top
-    if (isset($grouped_rooms['OpenLab'])) {
-        $openLabRooms = $grouped_rooms['OpenLab'];
-        unset($grouped_rooms['OpenLab']);
-        $grouped_rooms = ['OpenLab' => $openLabRooms] + $grouped_rooms;
+} else {
+    try {
+        // Fetch all rooms from the database
+        $stmt = $pdo->prepare("SELECT * FROM Rooms ORDER BY location, room_name");
+        $stmt->execute();
+        $rooms = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+        // Group rooms by location
+        $grouped_rooms = [];
+        foreach ($rooms as $room) {
+            $grouped_rooms[$room['location']][] = $room;
+        }
+    
+        // Move OpenLab to the top
+        if (isset($grouped_rooms['OpenLab'])) {
+            $openLabRooms = $grouped_rooms['OpenLab'];
+            unset($grouped_rooms['OpenLab']);
+            $grouped_rooms = ['OpenLab' => $openLabRooms] + $grouped_rooms;
+        }
+    } catch (PDOException $e) {
+        die("Error fetching rooms: " . $e->getMessage());
     }
-} catch (PDOException $e) {
-    die("Error fetching rooms: " . $e->getMessage());
 }
 ?>
 
@@ -55,6 +80,10 @@ try {
     <nav>
     <img src="../css/Logo.png">
     <h1>IT collage booking system</h1>
+    <form method="GET" action="room_browse.php">
+            <input type="text" name="search" placeholder="Search by Room Name" value="<?= htmlspecialchars($search) ?>" required>
+            <button type="submit">Search</button>
+        </form>
             <ul>
                     <li><a href="profile.php">
                         <span class="material-symbols-outlined">person</span>Profile
