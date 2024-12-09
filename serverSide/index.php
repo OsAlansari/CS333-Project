@@ -30,6 +30,7 @@ $type = $stmt->fetch();
     <!-- Navigation Bar -->
     <header>
     <nav>
+        
     <img src="../css/Logo.png">
     <h1>IT collage booking system</h1>
             <ul>
