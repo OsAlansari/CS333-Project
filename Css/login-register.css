@@ -41,7 +41,7 @@ body{
     background: #e0dede;
     justify-content: center;
     display: flex;
-    margin: 20px auto;
+    margin: 10px auto;
     padding: 12px;
     border: none;
     outline: none;
@@ -57,7 +57,7 @@ body{
     background: #573b8a;
     font-size: 1em;
     font-weight: bold;
-    margin-top: 30px;
+    margin-top: 5px;
     outline: none;
     border: none;
     border-radius: 5px;
@@ -88,3 +88,17 @@ body{
   #chk:checked ~ .signup label{
     transform: scale(.6);
   }
+ 
+span.error {
+  display: block; /* Ensures the message is on a new line */
+  color: red;
+  font-size: 10px;
+  text-align: center; /* Centers the error message */
+ margin: 5px auto;
+}
+p.login-error {
+  color: red;
+  font-size: 10px; /* Adjust the font size */
+  text-align: center; /* Center-align the error message */
+  margin: 5px auto;
+}
