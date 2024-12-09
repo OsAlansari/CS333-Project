@@ -1,5 +1,5 @@
 body, html {
-    margin: 0;
+    margin: 30px;
     padding: 0;
     font-family: Arial, sans-serif;
     background: white;
@@ -7,7 +7,7 @@ body, html {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 550px;
     margin: 0 auto;
     padding: 20px;
     background-color: #f4f4f9;
@@ -51,7 +51,9 @@ p {
 form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 15px;
+    margin: 15px;
 }
 
 label {
@@ -65,10 +67,11 @@ input[type="date"], input[type="time"], textarea {
     border: 2px solid #705aeca2;
     border-radius: 5px;
     width: 100%;
+    margin: auto auto;
 }
 
 input[type="date"]:focus, input[type="time"]:focus, textarea:focus {
-    border-color: #007BFF;
+    border-color: #1a1291;
     outline: none;
 }
 
