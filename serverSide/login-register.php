@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $last_name = trim($_POST['last_name']);
         $email = trim($_POST['email']);
         $password = trim($_POST['password']);
-
+        
         if (strpos($first_name, ' ') !== false) {
             $register_error = 'First name cannot contain spaces.';
         } elseif (strpos($last_name, ' ') !== false) {
@@ -43,6 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $register_error = 'Invalid email format or contains spaces.';
         } elseif (strpos($password, ' ') !== false) {
             $register_error = 'Password cannot contain spaces.';
+        } elseif (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/', $password)) { 
+            $register_error = "Choose a stronger password.";
         } elseif (!preg_match('/^[0-9]{8,9}@stu\.uob\.edu\.bh$/', $email) && !preg_match('/^[a-zA-Z]{4,}@uob\.edu\.bh$/', $email)) {
             $register_error = 'Invalid UoB email format.';
         } else {
