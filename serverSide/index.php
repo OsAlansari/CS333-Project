@@ -18,6 +18,15 @@ $type = $stmt->fetch();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+<!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+
+
+<!-- responsive style -->
+<link href="../Css/responsive.css" rel="stylesheet" />
     <!-- Material Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <!-- Additional CSS -->
@@ -27,7 +36,16 @@ $type = $stmt->fetch();
 </head>
 <body>
     <!-- Navigation Bar -->
-    <header>
+    <div class="hero_area">
+
+<div class="hero_bg_box">
+  <div class="bg_img_box">
+    <img src="../images/hero-bg.png" alt="">
+  </div>
+</div>
+
+<!-- header section strats -->
+<header>
     <nav>
         
     <img src="../css/Logo.png">
@@ -62,28 +80,43 @@ $type = $stmt->fetch();
     </header>
 
     <!-- Main Content -->
-    <main>
-    <h1>Welcome to the Home Page</h1>
-        <?php if ($isLoggedIn): ?>
-            <p class="welcome">Welcome! Access your <a href="profile.php">profile</a>.</p>
-        <?php else: ?>
-            <p>Please log in or register to access more features.</p>
-        <?php endif; ?>
-    </main>
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      University of Bahrain <br>
+                      Room Booking System
+                    </h1>
+                    <p>
+                    Spaces to Inspire, Rooms to Achieve – Book Your Perfect Study Haven Today.
+                    </p>
+                    <div class="btn-box">
+                      <a href="../serverSide\room_browse.php" class="btn1">
+                        Book Now
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="../images/slider-img.png" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
 
-    <footer>
-        <nav>
-            <p>
-            Contact us:
-            <a href="mailto:booking.help@uob.edu.bh">booking.help@uob.edu.bh</a>
-            </p>
-            <p>
-            Follow us on social media:
-            <a href="https://twitter.com/uobedubh">Twitter</a>
-            <a href="https://www.instagram.com/uobedubh">Instagram</a>
-            </p>
-            <p>&copy; 2024 University of Bahrain | All rights Reserved</p>
-        </nav>
-    </footer>
+    </section>
+    
+  </div>
+  
+ 
+  
 </body>
 </html>
