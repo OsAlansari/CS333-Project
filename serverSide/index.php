@@ -7,10 +7,12 @@ include 'config.php';
 $isLoggedIn = isset($_SESSION['user_id']);
 
 // Fetch user type
+if ($isLoggedIn){
 $user_id = $_SESSION['user_id'];
 $stmt = $pdo->prepare("SELECT user_type FROM users WHERE id = ?");
 $stmt->execute([$user_id]);
 $type = $stmt->fetch();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
