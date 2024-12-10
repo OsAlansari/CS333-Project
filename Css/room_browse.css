@@ -2,7 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background:white;
+    background: white;
     color: #333;
 }
 
@@ -52,33 +52,32 @@ button {
     transition: background-color 0.3s;
 }
 
-
-
-
 .room-container {
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
+
 .location-section {
-    
     border-radius: 8px;
-    display: alignment;
     padding: 20px;
    
     
 }
+
 .location-section h2 {
     text-align: center;
     margin-bottom: 15px;
-    color:  #06014b;
+    color: #06014b;
 }
+
 .room-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
     gap: 15px;
 }
+
 .room-card {
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -87,14 +86,17 @@ button {
     box-shadow: 0 7px 4px rgba(231, 224, 224, 0.178);
     background-color: #fff;
 }
+
 .room-card h3 {
     margin: 10px 0;
     color: #444;
 }
+
 .room-card p {
     margin: 5px 0;
     color: #666;
 }
+
 .room-card a {
     display: inline-block;
     margin-top: 20px;
@@ -107,6 +109,20 @@ button {
     cursor: pointer;
     text-decoration: none;
 }
+
 .room-card a:hover {
     background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .room-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .room-grid {
+        grid-template-columns: 1fr; /* 1 column for very small screens */
+    }
 }
