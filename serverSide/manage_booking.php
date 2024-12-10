@@ -94,7 +94,7 @@ unset($booking); // Break the reference with the last element
 <body>
 <header>
     <nav>
-        <img src="../css/Logo.png">
+        <img src="../images/Logo.png">
         <h1>IT College Booking System</h1>
         <ul>
             <li><a href="profile.php"><span class="material-symbols-outlined">person</span>Profile</a></li>
