@@ -3,7 +3,7 @@ include 'config.php';
 session_start();
 
 if (isset($_SESSION['user_id'])) {
-    header('Location: index.php');
+    header('Location: ../serverSide/index.php');
     exit();
 }
 
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($user && password_verify($password, $user['password'])) {
                 $_SESSION['user_id'] = $user['id'];
-                header('Location: index.php'); // Redirect to home page after login
+                header('Location: ../serverSide/index.php'); // Redirect to home page after login
                 exit();
             } else {
                 $login_error = 'Invalid email or password.';

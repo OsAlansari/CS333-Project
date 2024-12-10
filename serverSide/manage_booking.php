@@ -6,7 +6,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
 include 'config.php';
 
 if (!$isLoggedIn) {
-    header('Location: login-register.php');
+    header('Location: ../serverSide/login-register.php');
     exit();
 }
 
@@ -18,7 +18,7 @@ $stmt->execute([$user_id]);
 $user = $stmt->fetch();
 
 if ($user['user_type'] == 'Admin') {
-    header('Location: index.php');
+    header('Location: ../serverSide/index.php');
     exit();
 }
 

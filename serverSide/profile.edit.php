@@ -4,7 +4,7 @@ session_start();
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php'); // Redirect to login page
+    header('Location: ../serverSide/login.php'); // Redirect to login page
     exit();
 }
 
@@ -15,7 +15,7 @@ $stmt->execute([$user_id]);
 $user = $stmt->fetch();
 
 if ($user['user_type'] == 'Admin') {
-    header('Location: admin.php');
+    header('Location: ../serverSide/admin.php');
     exit();
 }
 

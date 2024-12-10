@@ -4,7 +4,7 @@ include 'config.php';
 
 // Redirect if the user is not logged in
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /login-register.php');
+    header('Location: ../serverSide/login-register.php');
     exit();
 }
 
@@ -15,7 +15,7 @@ $stmt->execute([$user_id]);
 $type = $stmt->fetch();
 
 if ($type['user_type'] != 'Admin') {
-    header('Location: index.php');
+    header('Location: ../serverSide/index.php');
     exit();
 }
 

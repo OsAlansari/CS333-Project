@@ -3,7 +3,7 @@ session_start();
 include 'config.php'; // Include database connection
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /login-register.php');
+    header('Location: ../serverSide/login-register.php');
     exit();
 }
 

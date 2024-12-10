@@ -4,7 +4,7 @@ session_start();
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
-    header('Location: login-register.php'); // Redirect to login page
+    header('Location: ../serverSide/login-register.php'); // Redirect to login page
     exit();
 }
 

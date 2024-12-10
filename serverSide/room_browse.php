@@ -6,7 +6,7 @@ include 'config.php'; // Include database connection
 
 // Check if the user is logged in
 if (!$isLoggedIn) {
-    header('Location: /login-register.php');
+    header('Location: ../serverSide/login-register.php');
     exit();
 }
 

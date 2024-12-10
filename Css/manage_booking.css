@@ -48,3 +48,33 @@ main p {
     color: #666;
     margin: 20px 0;
 }
+/* Media queries for tablets and phones */
+@media (max-width: 768px) {
+    .bookings-table th, .bookings-table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .bookings-table {
+        margin: 10px 0;
+    }
+
+    .no-bookings {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bookings-table th, .bookings-table td {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .bookings-table {
+        margin: 5px 0;
+    }
+
+    .no-bookings {
+        font-size: 12px;
+    }
+}
