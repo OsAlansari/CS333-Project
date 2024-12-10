@@ -183,7 +183,7 @@ try {
                 <label for="purpose">Purpose:</label>
                 <textarea name="purpose" id="purpose" required><?php echo htmlspecialchars($selected_booking['purpose']); ?></textarea>
 
-                <button type="submit">Update Booking</button>
+                <button class = "button" type="submit">Update Booking</button>
             </form>
         <?php endif; ?>
 

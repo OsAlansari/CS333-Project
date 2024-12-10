@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label for="equipment">Equipment</label>
         <textarea id="equipment" name="equipment" rows="4" placeholder="E.g., Projector, Whiteboard"></textarea>
 
-        <button type="submit">Add Room</button>
+        <button class = "button" type="submit">Add Room</button>
     </form>
     </div>
 </body>

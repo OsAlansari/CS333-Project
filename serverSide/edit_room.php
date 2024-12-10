@@ -145,7 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="equipment">Equipment</label>
                 <textarea id="equipment" name="equipment" rows="4" required><?= htmlspecialchars($room['equipment']) ?></textarea>
 
-                <button type="submit">Update Room</button>
+                <button class = "button" type="submit">Update Room</button>
             </form>
         <?php endif; ?>
     </div>

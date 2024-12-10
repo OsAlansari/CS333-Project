@@ -162,7 +162,7 @@ try {
             <label for="purpose">Purpose:</label>
             <textarea name="purpose" id="purpose" required></textarea>
 
-            <button type="submit">Book Room</button>
+            <button class = "button" type="submit">Book Room</button>
         </form>
 
         <!-- Current Bookings -->

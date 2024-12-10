@@ -126,7 +126,7 @@ try {
                 <!-- Confirm Deletion -->
                 <form method="POST" action="delete_booking.php">
                     <input type="hidden" name="booking_id" value="<?php echo htmlspecialchars($selected_booking['booking_id']); ?>">
-                    <button type="submit" class="danger">Delete Booking</button>
+                    <button type="submit" class="danger button">Delete Booking</button>
                 </form>
             </div>
         <?php endif; ?>

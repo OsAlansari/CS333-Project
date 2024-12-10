@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['room_id'])) {
                     </option>
                 <?php endforeach; ?>
             </select>
-            <noscript><button type="submit">Select</button></noscript>
+            <noscript><button class = "button" type="submit">Select</button></noscript>
         </form>
 
         <!-- Show Room Details -->
