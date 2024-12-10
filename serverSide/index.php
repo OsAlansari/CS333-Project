@@ -55,7 +55,7 @@ $type = $stmt->fetch();
                         <span class="material-symbols-outlined">person</span>Profile
                     </a></li>
                     <li><a href="room_browse.php">
-                        <span class="material-symbols-outlined">room</span>Bowse Rooms
+                        <span class="material-symbols-outlined">room</span>Browse Rooms
                     </a></li>
                     <?php if ($type['user_type'] == 'Admin'): ?>
                         <li><a href="admin.php">

@@ -46,7 +46,7 @@ if ($type['user_type'] != 'Admin') {
                         <span class="material-symbols-outlined">house</span>Home Page
                     </a></li>
                 <li><a href="room_browse.php">
-                    <span class="material-symbols-outlined">room</span>Bowse Rooms
+                    <span class="material-symbols-outlined">room</span>Browse Rooms
                 </a></li>
                 <li><a href="logout.php">
                     <span class="material-symbols-outlined">logout</span>Log Out
