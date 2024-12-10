@@ -113,3 +113,71 @@ body {
 .edit-profile-container .back-button:hover {
     text-decoration: underline;
 }
+
+/* Small screens (up to 768px width) */
+@media (max-width: 768px) {
+    .edit-profile-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .edit-profile-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .edit-profile-container h3 {
+        font-size: 1.4rem;
+    }
+
+    .edit-profile-container .form-group input[type="email"],
+    .edit-profile-container .form-group input[type="file"],
+    .edit-profile-container .form-group input[type="password"] {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .edit-profile-container .submit-button {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .edit-profile-container .back-button {
+        font-size: 0.8rem;
+    }
+}
+
+/* Very small screens (up to 480px width) */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .edit-profile-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .edit-profile-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .edit-profile-container h3 {
+        font-size: 1.2rem;
+    }
+
+    .edit-profile-container .form-group input[type="email"],
+    .edit-profile-container .form-group input[type="file"],
+    .edit-profile-container .form-group input[type="password"] {
+        font-size: 0.8rem;
+        padding: 6px;
+    }
+
+    .edit-profile-container .submit-button {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+
+    .edit-profile-container .back-button {
+        font-size: 0.75rem;
+    }
+}

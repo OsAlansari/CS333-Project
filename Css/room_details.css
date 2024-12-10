@@ -115,3 +115,78 @@ table th {
     text-align: center;
     font-size: 18px;
 }
+
+/* Small screens (up to 768px width) */
+@media (max-width: 768px) {
+    body, html {
+        margin: 10px;
+    }
+
+    .container {
+        padding: 15px;
+        max-width: 100%;
+        border-radius: 6px;
+    }
+
+    h1, h2 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    input[type="date"], input[type="time"], textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    table th, table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+/* Very small screens (up to 480px width) */
+@media (max-width: 480px) {
+    body, html {
+        margin: 5px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    h1, h2 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    input[type="date"], input[type="time"], textarea {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .button {
+        font-size: 12px;
+        padding: 6px;
+        border-radius: 8px;
+    }
+
+    table th, table td {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .no-bookings {
+        font-size: 16px;
+    }
+}
