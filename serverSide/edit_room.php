@@ -148,6 +148,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button class = "button" type="submit">Update Room</button>
             </form>
         <?php endif; ?>
+        </form>
+    <form action="admin.php" method="get">
+    <button class="button" type="submit">Admin Panel</button>
+</form>
     </div>
 </body>
 </html>

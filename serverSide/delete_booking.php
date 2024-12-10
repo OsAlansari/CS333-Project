@@ -126,7 +126,7 @@ try {
                 <!-- Confirm Deletion -->
                 <form method="POST" action="delete_booking.php">
                     <input type="hidden" name="booking_id" value="<?php echo htmlspecialchars($selected_booking['booking_id']); ?>">
-                    <button type="submit" class="danger button">Delete Booking</button>
+                    <button type="submit" class="button" style="background: linear-gradient(45deg, #ff5d5d, #4b0101);">Delete Booking</button>
                 </form>
             </div>
         <?php endif; ?>
@@ -163,6 +163,10 @@ try {
                 <p>No bookings yet.</p>
             <?php endif; ?>
         </div>
+        </form>
+    <form action="admin.php" method="get">
+    <button class="button" type="submit">Admin Panel</button>
+</form>
     </div>
 </body>
 </html>

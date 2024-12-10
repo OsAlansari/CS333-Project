@@ -219,6 +219,10 @@ try {
                 <p>No bookings yet.</p>
             <?php endif; ?>
         </div>
+        </form>
+    <form action="admin.php" method="get">
+    <button class="button" type="submit">Admin Panel</button>
+</form>
     </div>
 </body>
 </html>

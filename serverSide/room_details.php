@@ -157,7 +157,9 @@ try {
             <?php else: ?>
                 <p>No bookings for this room yet.</p>
             <?php endif; ?>
-            <a href="index.php" class="button" style="background: linear-gradient(45deg, #6b6eff, #06014b);">Home Page</a>
+            <form action="index.php" method="get">
+    <button class="button" type="submit">Home Page</button>
+</form>
         </div>
     </div>
 </body>

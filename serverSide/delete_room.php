@@ -119,9 +119,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['room_id'])) {
             <!-- Deletion Confirmation Form -->
             <form method="POST" action="delete_room.php">
                 <input type="hidden" name="room_id" value="<?= $selected_room['room_id'] ?>">
-                <button type="submit" class="danger">Delete Room</button>
+                <button type="submit" class="button" style="background: linear-gradient(45deg, #ff5d5d, #4b0101);">Delete Room</button>
             </form>
         <?php endif; ?>
+        </form>
+    <form action="admin.php" method="get">
+    <button class="button" type="submit">Admin Panel</button>
+</form>
     </div>
 </body>
 </html>
