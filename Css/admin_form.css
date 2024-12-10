@@ -1,76 +1,124 @@
-body { 
+body, html {
+    margin: 30px;
+    padding: 0;
     font-family: Arial, sans-serif;
-    background: #f4f4f9;
-    padding: 20px; 
-}
-
-h1, h2 { 
-    color: #444; 
+    background: white;
+    color: #333;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 550px;
     margin: 0 auto;
-    background: #fff;
     padding: 20px;
+    background-color: #f4f4f9;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.message { 
+h1 {
+    text-align: center;
+    color: #06014b;
+}
+
+h2 {
+    margin-top: 40px;
+    text-align: center;
+    color: #06014b;
+}
+
+p {
+    font-size: 18px;
     margin: 10px 0;
+}
+
+.message {
+    margin: 20px 0;
     padding: 10px;
     border-radius: 5px;
-}
-
-.success { 
-    background-color: #d4edda;
-    border: 1px solid #c3e6cb;
-    color: #155724;
-}
-
-.error { 
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    color: #721c24;
-}
-
-.bookings table { 
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-}
-
-.bookings th, .bookings td {
-    padding: 10px;
-    border: 1px solid #ddd;
     text-align: center;
 }
 
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
 form {
-    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px;
 }
 
 label {
-    display: block; 
+    font-size: 16px;
     margin-bottom: 5px;
 }
 
-input, textarea, button {
-    width: 100%;
-    margin-bottom: 10px;
+input[type="date"], input[type="time"], textarea {
     padding: 10px;
+    font-size: 16px;
+    border: 2px solid #705aeca2;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    width: 100%;
+    margin: auto auto;
+}
+
+input[type="date"]:focus, input[type="time"]:focus, textarea:focus {
+    border-color: #1a1291;
+    outline: none;
+}
+
+.button {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #6b6eff, #06014b);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.bookings {
+    margin-top: 20px;
+}
+
+.no-bookings {
+    text-align: center;
+    font-size: 18px;
 }
 
 .danger {
     background-color: #dc3545;
     color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
 }
 
 .danger:hover {

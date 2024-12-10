@@ -161,7 +161,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `profile_picture`, `first_name`, `last_name`, `user_type`) VALUES
-(0, 'Admin', '$2y$10$zTewDPwnjeSkxK6kcxJ/1OWR2Ko3faqIBM4nOHCsC3/YA.gm6v8mm', '../Css/Admin_Icon.png', 'Admin', 'Admin', 'Admin'),
+(0, 'Admin', '$2y$10$zTewDPwnjeSkxK6kcxJ/1OWR2Ko3faqIBM4nOHCsC3/YA.gm6v8mm', '../images/Admin_Icon.png', 'Admin', 'Admin', 'Admin'),
 (1, '20194952@stu.uob.edu.bh', '$2y$10$csoJLLH2gfbUtqZF.U8m5u04cLpBUptWAeS5V5U/1QzoV.fOWG1Jm', NULL, 'Mohammed', 'Hussain', 'Student'),
 (2, 'Mohammed@uob.edu.bh', '$2y$10$oUszDjv.iohamTXkZi5np.GuC9uRkkcdHUEBnf991E/Y/APg98y66', NULL, 'Mohammed', 'Hussain', 'Staff'),
 (3, '20198028@stu.uob.edu.bh', '$2y$10$eGk/IQdLWZc6wOv/0Bx7N.ehBFNsV3QqfTz.b7FH5kjpjecs/Eh6K', NULL, 'Muhanna', 'Ahmed', 'Student'),

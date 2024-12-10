@@ -20,8 +20,8 @@ $search = '';
 if (isset($_GET['search'])) {
     try {
         $search = $_GET['search'];
-    $stmt = $pdo->prepare("SELECT * FROM Rooms WHERE room_name LIKE ? ORDER BY location, room_name");
-    $stmt->execute(['%' . $search . '%']);
+    $stmt = $pdo->prepare("SELECT * FROM Rooms WHERE room_name LIKE ? OR location LIKE ? ORDER BY location, room_name");
+    $stmt->execute(['%' . $search . '%', '%' . $search . '%']);
     $rooms = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
         // Group rooms by location
@@ -73,14 +73,12 @@ if (isset($_GET['search'])) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="../Css/header.css">
     <link rel="stylesheet" href="../Css/room_browse.css">
-    <link rel="stylesheet" href="../Css/footer.css">
 </head>
 <body>
 <header>
     <nav>
-    <img src="../css/Logo.png">
+    <img src="../images/Logo.png">
     <h1>IT collage booking system</h1>
-   
             <ul>
                     <li><a href="profile.php">
                         <span class="material-symbols-outlined">person</span>Profile

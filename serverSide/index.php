@@ -32,7 +32,6 @@ $type = $stmt->fetch();
     <!-- Additional CSS -->
     
     <link rel="stylesheet" href="../Css/index.css">
-    <link rel="stylesheet" href="../Css/footer.css">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -48,7 +47,7 @@ $type = $stmt->fetch();
 <header>
     <nav>
         
-    <img src="../css/Logo.png">
+    <img src="../images/Logo.png">
     <h1>IT collage booking system</h1>
             <ul>
                 <?php if ($isLoggedIn): ?>
@@ -110,13 +109,8 @@ $type = $stmt->fetch();
               </div>
             </div>
           </div>
-          
-
     </section>
     
   </div>
-  
- 
-  
 </body>
 </html>

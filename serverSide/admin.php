@@ -30,8 +30,7 @@ if ($type['user_type'] != 'Admin') {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <!-- Additional CSS -->
     <link rel="stylesheet" href="../Css/header.css">
-    <link rel="stylesheet" href="../Css/admin.css">
-    <link rel="stylesheet" href="../Css/footer.css">
+    <link rel="stylesheet" href="../Css/room_browse.css">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -59,22 +58,22 @@ if ($type['user_type'] != 'Admin') {
     <!-- Main Content -->
     <main>
     <h1>Admin Panel</h1>
-    <div class="admin-container">
+    <div class="room-container">
         <!-- Rooms Control Section -->
-        <div class="section">
+        <div class="location-section">
             <h2>Rooms Control</h2>
-            <div class="grid">
-                <div class="card">
+            <div class="room-grid">
+                <div class="room-card">
                     <h3>Add Room</h3>
                     <p>Add a new room to the system</p>
                     <a href="../serverSide/add_room.php">Click here!</a>
                 </div>
-                <div class="card">
+                <div class="room-card">
                     <h3>Edit Room</h3>
                     <p>Edit an existing room in the system</p>
                     <a href="../serverSide/edit_room.php">Click here!</a>
                 </div>
-                <div class="card">
+                <div class="room-card">
                     <h3>Delete Room</h3>
                     <p>Delete an existing room from the system</p>
                     <a href="../serverSide/delete_room.php">Click here!</a>
@@ -83,20 +82,20 @@ if ($type['user_type'] != 'Admin') {
         </div>
 
         <!-- Bookings Control Section -->
-        <div class="section">
+        <div class="location-section">
             <h2>Bookings Control</h2>
-            <div class="grid">
-                <div class="card">
+            <div class="room-grid">
+                <div class="room-card">
                     <h3>Add Booking</h3>
                     <p>Add a new booking to the system</p>
                     <a href="../serverSide/add_booking.php">Click here!</a>
                 </div>
-                <div class="card">
+                <div class="room-card">
                     <h3>Edit Booking</h3>
                     <p>Edit an existing booking in the system</p>
                     <a href="../serverSide/edit_booking.php">Click here!</a>
                 </div>
-                <div class="card">
+                <div class="room-card">
                     <h3>Delete Booking</h3>
                     <p>Delete an existing booking from the system</p>
                     <a href="../serverSide/delete_booking.php">Click here!</a>
@@ -105,20 +104,5 @@ if ($type['user_type'] != 'Admin') {
         </div>
     </div>
 </main>
-
-    <footer>
-        <nav>
-            <p>
-            Contact us:
-            <a href="mailto:booking.help@uob.edu.bh">booking.help@uob.edu.bh</a>
-            </p>
-            <p>
-            Follow us on social media:
-            <a href="https://twitter.com/uobedubh">Twitter</a>
-            <a href="https://www.instagram.com/uobedubh">Instagram</a>
-            </p>
-            <p>&copy; 2024 University of Bahrain | All rights Reserved</p>
-        </nav>
-    </footer>
 </body>
 </html>
