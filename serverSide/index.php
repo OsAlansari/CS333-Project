@@ -63,7 +63,7 @@ $type = $stmt->fetch();
                         </a></li>
                         <?php else: ?>
                         <li><a href="manage_booking.php">
-                            <span class="material-symbols-outlined">table</span>Manage Your Bookings
+                            <span class="material-symbols-outlined">table</span>Manage Bookings
                         </a></li>
                         <?php endif; ?>
                     <li><a href="logout.php">
