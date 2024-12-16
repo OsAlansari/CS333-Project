@@ -157,6 +157,9 @@ try {
             <?php else: ?>
                 <p>No bookings for this room yet.</p>
             <?php endif; ?>
+            <form action="room_browse.php" method="get">
+    <button class="button" type="submit">Room Browsing</button>
+</form>
             <form action="index.php" method="get">
     <button class="button" type="submit">Home Page</button>
 </form>

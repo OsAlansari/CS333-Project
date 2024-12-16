@@ -126,6 +126,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['room_id'])) {
     <form action="admin.php" method="get">
     <button class="button" type="submit">Admin Panel</button>
 </form>
+<form action="index.php" method="get">
+    <button class="button" type="submit">Home Page</button>
+</form>
     </div>
 </body>
 </html>
